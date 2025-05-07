@@ -4,12 +4,12 @@ metadata:
   name: voting-service
   labels:
     name: voting-service
-    app: voting-app
+    app: v-app
 spec:
   type: LoadBalancer
   ports:
   - port: 80
-    targetPort: 80
+    targetPort: 8080
   selector:
-    name: voting-app-pod
-    app: voting-app
+    name: v-app
+    app: v-app

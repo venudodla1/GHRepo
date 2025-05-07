@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: voting-app-deployment
+  name: v-aapp
   labels:
-    name: voting-app-deployment
-    app: voting-app
+    name: v-app
+    app: v-app
 spec:
   replicas: 3
   selector:
     matchLabels:
-      name: voting-app-pod
-      app: voting-app
+      name: v-app
+      app: v-app
   strategy: 
     type: RollingUpdate
     rollingUpdate: 
@@ -18,14 +18,14 @@ spec:
       maxUnavailable: 0
   template:
     metadata:
-      name: voting-app-pod
+      name: v-app
       labels:
-        name: voting-app-pod
-        app: voting-app
+        name: v-app
+        app: v-app
 
     spec:
       containers:
-      - name: voting-app
-        image: dockersamples/examplevotingapp_vote
+      - name: v-app
+        image: tomcat
         ports:
-        - containerPort: 80
+        - containerPort: 8080
