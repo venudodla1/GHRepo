@@ -11,6 +11,11 @@ spec:
     matchLabels:
       name: voting-app-pod
       app: voting-app
+  strategy: 
+    type: RollingUpdate
+    rollingUpdate: 
+      maxSurge: 1
+      maxUnavailable: 0
   template:
     metadata:
       name: voting-app-pod
